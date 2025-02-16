@@ -106,8 +106,15 @@ NGINX_CONFIG="server {
 
 echo "$NGINX_CONFIG" | sudo tee "$NGINX_CONF" > /dev/null
 
-# To enable the site, create a symbolic link to the sites-enabled directory
-sudo ln -s $NGINX_CONF /etc/nginx/sites-enabled/
+# Check if symlink already exists and remove it if necessary
+if [ -L "/etc/nginx/sites-enabled/$PROJECT_NAME.conf" ]; then
+    echo "Symlink already exists, removing old one..."
+    sudo rm "/etc/nginx/sites-enabled/$PROJECT_NAME.conf"
+fi
+
+# Create the symbolic link with the correct name
+echo "Creating symbolic link for Nginx..."
+sudo ln -s "$NGINX_CONF" /etc/nginx/sites-enabled/
 
 # Add the project to /etc/hosts if it doesn't exist
 echo "Adding $PROJECT_NAME.local to /etc/hosts..."
