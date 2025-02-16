@@ -33,12 +33,12 @@ Ensure **Composer**, **PHP**, **MySQL**, and **Nginx** are installed before runn
 
 ## Workflow
 
-1. Checks for necessary software: The script checks if Composer, PHP, MySQL, and Nginx are installed on your system.
-2. Project setup: The script creates a new project directory under /var/www/, installs the Bedrock project, and sets up permissions.
-3. Database creation: The script creates a MySQL database named after your project and assigns it to the project.
-4. Nginx configuration: A new Nginx configuration is created under /etc/nginx/sites-available/ and a symbolic link is made in /etc/nginx/sites-enabled/.
-5. Hosts file modification: The script ensures that the domain project_name.local is added to your /etc/hosts file for local access.
-6. Nginx reload: The script tests and reloads the Nginx configuration to apply the changes.
+1. **Checks for necessary software**: The script checks if Composer, PHP, MySQL, and Nginx are installed on your system.
+2. **Project setup**: The script creates a new project directory under /var/www/, installs the Bedrock project, and sets up permissions.
+3. **Database creation**: The script creates a MySQL database named after your project and assigns it to the project.
+4. **Nginx configuration**: A new Nginx configuration is created under /etc/nginx/sites-available/ and a symbolic link is made in /etc/nginx/sites-enabled/.
+5. **Hosts file modification**: The script ensures that the domain project_name.local is added to your /etc/hosts file for local access.
+6. **Nginx reload**: The script tests and reloads the Nginx configuration to apply the changes.
 
 ## Post-Installation
 
@@ -50,7 +50,7 @@ After running the script successfully:
 
 ## Environment Configuration
 
-The Bedrock installation **DOES NOT** create an `.env` file in your project directory. You'll need to add it manually and update it with:
+The Bedrock installation **does not** create an `.env` file in your project directory. You'll need to add it manually and update it with:
 - Database credentials
 - WordPress salts
 - Other environment-specific configurations
