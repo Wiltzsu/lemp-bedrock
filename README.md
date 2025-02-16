@@ -6,15 +6,6 @@ This bash script automates the process of setting up a new WordPress project usi
 
 Ensure **Composer**, **PHP**, **MySQL**, and **Nginx** are installed before running the script.
 
-## Features
-
-- Creates a new Bedrock project in the specified directory.
-- Configures Nginx for the project with a custom `.conf` file.
-- Creates a new MySQL database for the project.
-- Sets up necessary file permissions.
-- Adds the project to `/etc/hosts` for local development (e.g., `http://project_name.local`).
-- Restarts Nginx to apply changes.
-
 ## Installation
 
 1. Clone this repository or copy the script to your local machine.
