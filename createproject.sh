@@ -67,7 +67,7 @@ composer create-project roots/bedrock "$PROJECT_DIR" || {
 }
 
 # After Composer is done, set proper permissions for web server
-sudo chown -R www-data:www-data "$PROJECT_DIR"
+sudo chown -R $USER:www-data "$PROJECT_DIR"
 sudo find "$PROJECT_DIR" -type d -exec chmod 755 {} \;
 sudo find "$PROJECT_DIR" -type f -exec chmod 644 {} \;
 
