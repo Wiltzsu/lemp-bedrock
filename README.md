@@ -16,11 +16,11 @@ Ensure **Composer**, **PHP**, **MySQL**, and **Nginx** are installed before runn
    ```
 3. Run the script
    ```bash
-   ./createproject.sh
+   sudo ./createproject.sh
    ```
 4. Follow the prompts
 - Enter your project name
-- Provide your MySQL root password
+- Provide your MySQL server root password
 
 ## Workflow
 
