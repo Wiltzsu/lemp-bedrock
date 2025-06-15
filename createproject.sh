@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if the script is running as root
+if [[ $EUID -ne 0 ]]; then
+    echo "This script must be run as root. Please run it with sudo."
+    exit 1
+fi
+
 # Define colors
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -47,8 +53,15 @@ NGINX_CONF="/etc/nginx/sites-available/$PROJECT_NAME.conf"
 ETC_HOSTS="/etc/hosts"
 
 # Prompt for MySQL root password
-read -s -p "Enter MySQL root password: " MYSQL_PWD
+read -s -p "Enter the MySQL root password for your server: " MYSQL_PWD
 echo ""
+
+# Test the password
+mysql -u root -p"$MYSQL_PWD" -e "SELECT 1;" >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+  echo "❌ Incorrect MySQL root password. Exiting."
+  exit 1
+fi
 
 # Check if the project directory already exists
 if [ -d "$PROJECT_DIR" ]; then
